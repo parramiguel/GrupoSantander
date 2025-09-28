@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h3 style="margin-bottom: 20px; color: #495057;">➕ Agregar Nueva Tarea</h3>
+    <form method="POST" action="/agregar">
+        <div class="form-group">
+            <input type="text" name="texto" placeholder="Escribe tu nueva tarea aquí..." required>
+            <button type="submit" class="btn btn-primary">Agregar Tarea</button>
+        </div>
+    </form>
+</div>
+
+<div class="tareas-container">
+    <div class="contador-tareas">
+        📋 Total de tareas: {{ tareas|length }}
+        {% if tareas|length > 0 %}
+        ({{ tareas|selectattr('completada')|list|length }} completadas, {{ tareas|rejectattr('completada')|list|length }} pendientes)
+        {% endif %}
+    </div>
+    
+    {% if tareas|length > 0 %}
+        {% for tarea in tareas %}
+        <div class="tarea {% if tarea.completada %}completada{% endif %}">
+            <div class="tarea-info">
+                <div class="tarea-id">ID #{{ tarea.id }}</div>
+                <div class="tarea-texto">{{ tarea.texto }}</div>
+            </div>
+            
+            <div class="tarea-acciones">
+                {% if not tarea.completada %}
+                    <a href="/completar/{{ tarea.id }}" class="btn btn-success">✓ Completar</a>
+                {% else %}
+                    <span class="estado-completada">✅ Completada</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="sin-tareas">
+            <h3>🎉 ¡No hay tareas pendientes!</h3>
+            <p>Agrega tu primera tarea usando el formulario de arriba.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
