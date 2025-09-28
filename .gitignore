@@ -1,9 +1,3 @@
-# Entornos virtuales de Python
-venv/
-contador_palabras/venv/
-env/
-ENV/
-
 # Archivos de Python
 __pycache__/
 *.py[cod]
@@ -25,27 +19,51 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-# Archivos de configuración de IDEs
+# Entornos virtuales
+venv/
+contador_palabras/venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Archivos de configuración
+.env
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Archivos del sistema
+# Sistema operativo
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Archivos de la aplicación
+tareas.json
 
 # Archivos temporales
 *.tmp
 *.temp
+
+# Logs
 *.log
 
 # Archivos de datos grandes (opcional)
 *.csv
 *.xlsx
-*.json
 
 # Archivos de imagen (opcional, descomenta si no quieres subirlos)
 # *.png
