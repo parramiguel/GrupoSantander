@@ -2,7 +2,7 @@
 # Pide al usuario una operación (suma, resta, multiplicación, división) y dos números.
 # Ejecute la operación y muestre el resultado.
 # Debe repetirse hasta que el usuario escriba "salir" como operación.
-
+    
 print("=== CALCULADORA BÁSICA ===")
 print("Operaciones disponibles: suma, resta, multiplicación, división")
 print("Escriba 'salir' para terminar el programa")
